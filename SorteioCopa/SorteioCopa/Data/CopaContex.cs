@@ -21,7 +21,6 @@ namespace SorteioCopa.Data
 
         public DbSet<paises> Paises { get; set; }
         public DbSet<confederacao> Confederacao { get; set; }
-
         public DbSet<cagar> Cagar { get; set; }
 
 
@@ -30,7 +29,8 @@ namespace SorteioCopa.Data
             modelBuilder.Entity<cagar>()
               .ToTable("cagar")
               .HasKey("Id");
-
+              
+   
             modelBuilder.Entity<cagar>()
                 .Property(f => f.Id)
                 .HasColumnName("Id")
@@ -43,13 +43,15 @@ namespace SorteioCopa.Data
                 .HasColumnName("Nome")
                 .HasColumnType("varchar(50)")
                 .IsRequired();
+            
+            ///////////////////////////////////////////////////////////
 
             modelBuilder.Entity<confederacao>()
                 .ToTable("Confederacao")
-                .HasKey("Id");
+                .HasKey("IdConfederacao");
 
             modelBuilder.Entity<confederacao>()
-                .Property(f => f.Id)
+                .Property(f => f.IdConfederacao)
                 .HasColumnName("ID")
                 .HasColumnType("tinyint")
                 .IsRequired();
@@ -67,17 +69,16 @@ namespace SorteioCopa.Data
                 .IsRequired();
 
 
-
-
-            /////////////////////////////////////////////
+            ///////////////////////////////////////////////
 
             modelBuilder.Entity<paises>()
-                .ToTable("PAISE")
-                .HasKey("ID");
+               .ToTable("Paises")
+               .HasKey("ID");
+
 
             modelBuilder.Entity<paises>()
                 .Property(f => f.ID)
-                .HasColumnName("Id")
+                .HasColumnName("ID")
                 .HasColumnType("tinyint")
                 .IsRequired();
 
@@ -87,30 +88,29 @@ namespace SorteioCopa.Data
                 .HasColumnType("varchar(50)")
                 .IsRequired();
 
+
             modelBuilder.Entity<paises>()
                 .Property(f => f.RankingFifa)
                 .HasColumnName("RANKINGFIFA")
-                .HasColumnType("smalint")
-                .IsRequired();
-
-            modelBuilder.Entity<paises>()
-                .Property(f => f.IdConfederacao)
-                .HasColumnName("IDCONFEDERACAO")
-                .HasColumnType("tinyint")
+                .HasColumnType("SMALLINT")
                 .IsRequired();
 
             modelBuilder.Entity<paises>()
                 .Property(f => f.Sede)
                 .HasColumnName("SEDE")
-                .HasColumnType("bit")
+                .HasColumnType("BIT")
                 .IsRequired();
 
             modelBuilder.Entity<paises>()
-                .HasOne(f => f.confederacao)
-                .WithMany()
-                .HasForeignKey(f => f.IdConfederacao);
+               .Property(f => f.IdConfederacao)
+               .HasColumnName("IDCONFEDERACAO")
+               .HasColumnType("TINYINT")
+               .IsRequired();
 
-           
+            modelBuilder.Entity<paises>()
+                               .HasOne(f => f.confederacao)
+                               .WithMany()
+                               .HasForeignKey(f => f.IdConfederacao);
 
             base.OnModelCreating(modelBuilder);
         }

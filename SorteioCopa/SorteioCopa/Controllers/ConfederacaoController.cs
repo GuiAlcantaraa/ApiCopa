@@ -21,37 +21,37 @@ namespace SorteioCopa.Controllers
         }
 
 
-        [HttpGet("ObterConfederacao/{Id}")]
+        [HttpGet("ObterConfederacoes")]
 
-        public ActionResult ObterPorId(int Id)
+        public ActionResult ObterPorId()
         {
             var data = new CopaContex();
-            var result = data.Cagar.ToList();
+            var result = data.Confederacao.ToList();
 
             if(result == null)
             {
-                return BadRequest("Cagar não existe na base de datos");
+                return BadRequest("Não existe confederações na base de dados.");
             }
             return Ok(result);
         }
 
 
-        [HttpPost("AdicionarCagar")]
+        [HttpPost("AdicionarConfederacao")]
 
-        public ActionResult AdicionarCagar(cagar cagar)
+        public ActionResult AdicionarConfederacao(confederacao confederacao)
         {
 
             var data = new CopaContex();
-            var exists = data.Cagar.FirstOrDefault(f => f.Id == cagar.Id);
+            var exists = data.Confederacao.FirstOrDefault(f => f.IdConfederacao == confederacao.IdConfederacao);
 
             if (exists == null)
             {
-                data.Cagar.Add(cagar);
+                data.Confederacao.Add(confederacao);
                 data.SaveChanges();
-                return Ok("Produto cadastrado");
+                return Ok("Confederação cadastrada!!");
             }
 
-            return BadRequest("Ja existe");
+            return BadRequest("Confederação Ja existe na base de dados.");
 
         }
        

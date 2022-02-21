@@ -12,6 +12,7 @@ namespace SorteioCopa.Models
         public int RankingFifa { get; set; }
 
         public string Participantes { get; set; }
+
         public int IdConfederacao { get; set; }
 
         public bool Sede { get; set; }

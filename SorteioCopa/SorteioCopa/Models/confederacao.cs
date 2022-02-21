@@ -7,7 +7,7 @@ namespace SorteioCopa.Models
 {
     public class confederacao
     {
-        public int Id { get; set; }
+        public int IdConfederacao { get; set; }
 
         public string Nome { get; set; }
 
