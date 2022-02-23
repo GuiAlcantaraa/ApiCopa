@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SorteioCopa.Data;
+using SorteioCopa.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace SorteioCopa.Controllers
             return Ok("ok");
         }
 
+
         [HttpGet("ObterPaises")]
 
         public ActionResult ObterPaises()
@@ -36,5 +38,39 @@ namespace SorteioCopa.Controllers
         }
 
 
+
+        [HttpPost("AdicionarPais")]
+        public ActionResult AdicionarPais(paises paises)
+        {
+            var data = new CopaContex();
+            var exists = data.Paises.FirstOrDefault(f => f.ID == paises.ID);
+
+            if(exists == null)
+            {
+                data.Paises.Add(paises);
+                data.SaveChanges();
+                return Ok("Pais cadastrado com sucesso!!");
+            }
+            return BadRequest("Pais ja existe na base de dados.");
+        }
+
+
+
+        [HttpDelete("DeletarPais/{Id}")]
+
+        public ActionResult DeletearPais(int Id)
+        {
+            var data = new CopaContex();
+            var exists = data.Paises.FirstOrDefault(f => f.ID == Id);
+
+            if (exists != null)
+            {
+                data.Paises.Remove(exists);
+                data.SaveChanges();
+                return Ok("Pais excluido com sucesso!!!!!");
+            }
+
+            return BadRequest("Não é possivel deletar pois pais não existe.");
+        }
     }
 }

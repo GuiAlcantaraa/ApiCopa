@@ -13,7 +13,7 @@ namespace SorteioCopa.Models
 
         public string Sigla { get; set; }
 
-        public List<paises> Paises { get; set; }
+        //public List<paises> Paises { get; set; }
 
     }
 }

@@ -17,7 +17,7 @@ namespace SorteioCopa.Models
 
         public bool Sede { get; set; }
 
-        public confederacao confederacao { get; set; }
+        public confederacao Confederacao { get; set; }
 
     }
 }

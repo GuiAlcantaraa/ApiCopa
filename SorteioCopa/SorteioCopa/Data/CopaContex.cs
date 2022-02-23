@@ -21,29 +21,14 @@ namespace SorteioCopa.Data
 
         public DbSet<paises> Paises { get; set; }
         public DbSet<confederacao> Confederacao { get; set; }
-        public DbSet<cagar> Cagar { get; set; }
+        public DbSet<potes> Potes { get; set; }
+        public DbSet<PotePais> PotePais { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<cagar>()
-              .ToTable("cagar")
-              .HasKey("Id");
-              
-   
-            modelBuilder.Entity<cagar>()
-                .Property(f => f.Id)
-                .HasColumnName("Id")
-                .HasColumnType("int")
-                .IsRequired();
-
-
-            modelBuilder.Entity<cagar>()
-                .Property(f => f.Nome)
-                .HasColumnName("Nome")
-                .HasColumnType("varchar(50)")
-                .IsRequired();
-            
+           
+  
             ///////////////////////////////////////////////////////////
 
             modelBuilder.Entity<confederacao>()
@@ -52,8 +37,8 @@ namespace SorteioCopa.Data
 
             modelBuilder.Entity<confederacao>()
                 .Property(f => f.IdConfederacao)
-                .HasColumnName("ID")
-                .HasColumnType("tinyint")
+                .HasColumnName("IDCONFEDERACAO")
+                .HasColumnType("INT")
                 .IsRequired();
 
             modelBuilder.Entity<confederacao>()
@@ -79,7 +64,7 @@ namespace SorteioCopa.Data
             modelBuilder.Entity<paises>()
                 .Property(f => f.ID)
                 .HasColumnName("ID")
-                .HasColumnType("tinyint")
+                .HasColumnType("INT")
                 .IsRequired();
 
             modelBuilder.Entity<paises>()
@@ -103,14 +88,71 @@ namespace SorteioCopa.Data
 
             modelBuilder.Entity<paises>()
                .Property(f => f.IdConfederacao)
-               .HasColumnName("IDCONFEDERACAO")
-               .HasColumnType("TINYINT")
+               .HasColumnName("IdConfederacao")
+               .HasColumnType("INT")
                .IsRequired();
 
             modelBuilder.Entity<paises>()
-                               .HasOne(f => f.confederacao)
+                               .HasOne(f => f.Confederacao)
                                .WithMany()
                                .HasForeignKey(f => f.IdConfederacao);
+
+            ////////////////////////////////////////////////////
+      
+
+            modelBuilder.Entity<potes>()
+             .ToTable("Pote")
+             .HasKey("Id");
+
+
+            modelBuilder.Entity<potes>()
+                .Property(f => f.Id)
+                .HasColumnName("IDPOTE")
+                .HasColumnType("INT")
+                .IsRequired();
+
+            modelBuilder.Entity<potes>()
+                .Property(f => f.Descricao)
+                .HasColumnName("DESCRICAO")
+                .HasColumnType("VARCHAR(10)")
+                .IsRequired();
+
+            ////////////////////////////////////////////////////
+
+
+             modelBuilder.Entity<PotePais>()
+                .ToTable("PotePais")
+                .HasKey("Id");
+
+             modelBuilder.Entity<PotePais>()
+                 .Property(f => f.Id)
+                 .HasColumnName("ID")
+                 .HasColumnType("INT")
+                 .IsRequired();
+
+             modelBuilder.Entity<PotePais>()
+                 .Property(f => f.IdPote)
+                 .HasColumnName("IDPOTE")
+                 .HasColumnType("INT")
+                 .IsRequired();
+
+
+             modelBuilder.Entity<PotePais>()
+               .Property(f => f.IdPais)
+               .HasColumnName("IDPAIS")
+               .HasColumnType("INT")
+               .IsRequired();
+
+            modelBuilder.Entity<PotePais>()
+                              .HasOne(f => f.paises)
+                              .WithMany()
+                              .HasForeignKey(f => f.IdPais);
+
+            modelBuilder.Entity<PotePais>()
+                              .HasOne(f => f.potes)
+                              .WithMany()
+                              .HasForeignKey(f => f.IdPote);
+
 
             base.OnModelCreating(modelBuilder);
         }

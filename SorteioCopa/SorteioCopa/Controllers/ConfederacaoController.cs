@@ -55,5 +55,21 @@ namespace SorteioCopa.Controllers
 
         }
        
+        [HttpDelete("DeletarConf/{Id}")]
+        public ActionResult DeletarConf(int Id)
+        {
+            var data = new CopaContex();
+            var exists = data.Confederacao.FirstOrDefault(f => f.IdConfederacao == Id);
+
+            if(exists != null)
+            {
+                data.Confederacao.Remove(exists);
+                data.SaveChanges();
+                return Ok("Confederação excluida com sucesso!!!!!");
+            }
+
+            return BadRequest("Não é possivel deletar pois confederação não existe");
+        }
+
     }
 }
