@@ -13,11 +13,12 @@ namespace SorteioCopa.Models
 
         public string Participantes { get; set; }
 
-        public int IdConfederacao { get; set; }
-
         public bool Sede { get; set; }
 
-        public confederacao Confederacao { get; set; }
+        public int IdConfederacao { get; set; }
+
+        public confederacao Confederacao { get; set; } 
+
 
     }
 }

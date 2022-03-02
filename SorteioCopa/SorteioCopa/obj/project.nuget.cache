@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4N/gOum6QE2tETT3ZWFJUuBw/87oMo7UOpF7OLY7hy0c6z6E17E4AjtaX2Ir54DOE8tPG1mc7VM1nsMdyA45vg==",
+  "dgSpecHash": "XWhLTsRomLHwNDwXeP0f7tWyaUmvFzb0bVYrv3YLseqKEMBJZ/LvjqU/gnjr7DxGT7hotSrEVa8iDoYjlAsbOw==",
   "success": true,
-  "projectFilePath": "D:\\Curso\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj",
+  "projectFilePath": "D:\\Curso\\testee\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilherme.machado\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\guilherme.machado\\.nuget\\packages\\microsoft.data.sqlclient\\1.0.19249.1\\microsoft.data.sqlclient.1.0.19249.1.nupkg.sha512",

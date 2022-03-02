@@ -15,15 +15,7 @@ namespace SorteioCopa.Controllers
     {
 
         [HttpGet]
-        public ActionResult Ola()
-        {
-            return Ok("ola");
-        }
-
-
-        [HttpGet("ObterConfederacoes")]
-
-        public ActionResult ObterPorId()
+        public ActionResult ObterConfederacoes()
         {
             var data = new CopaContex();
             var result = data.Confederacao.ToList();
@@ -37,7 +29,6 @@ namespace SorteioCopa.Controllers
 
 
         [HttpPost("AdicionarConfederacao")]
-
         public ActionResult AdicionarConfederacao(confederacao confederacao)
         {
 
@@ -54,6 +45,7 @@ namespace SorteioCopa.Controllers
             return BadRequest("Confederação Ja existe na base de dados.");
 
         }
+
        
         [HttpDelete("DeletarConf/{Id}")]
         public ActionResult DeletarConf(int Id)
