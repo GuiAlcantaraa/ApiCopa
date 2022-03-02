@@ -63,5 +63,10 @@ namespace SorteioCopa.Controllers
             return BadRequest("Não é possivel deletar pois confederação não existe");
         }
 
+
+        
+
     }
+
+
 }
