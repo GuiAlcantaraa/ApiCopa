@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SorteioCopa.Data;
 using SorteioCopa.Models;
 using System.Linq;
@@ -11,25 +12,22 @@ namespace SorteioCopa.Controllers
     public class PotePaisController : ControllerBase
     {
 
-        [HttpGet]
-
-        public ActionResult Padrao()
-        {
-            return Ok("OK");
-        }
-
         [HttpGet("ObterPotePais")]
 
         public ActionResult ObterPorId()
         {
-            var data = new CopaContex();
-            var result = data.PotePais.ToList();
+            var data = new CopaContex()
+                .PotePais
+                .Include(f => f.paises)
+                //.Include(f => f.potes)
+                .ToList();  
+           
 
-            if (result == null)
+            if (data == null)
             {
-                return BadRequest("Não existe confederações na base de dados.");
+               return BadRequest("Não existe confederações na base de dados.");
             }
-            return Ok(result);
+            return Ok(data);
         }
 
         [HttpPost("AdicionarPaisNoPote")]

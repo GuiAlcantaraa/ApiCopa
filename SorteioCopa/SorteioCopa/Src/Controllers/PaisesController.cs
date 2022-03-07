@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SorteioCopa.Data;
 using SorteioCopa.Models;
 using System;
@@ -14,27 +15,22 @@ namespace SorteioCopa.Controllers
     public class PaisesController : ControllerBase
     {
 
-        [HttpGet]
-        public ActionResult padrao()
-        {
-            return Ok("ok");
-        }
-
-
+      
         [HttpGet("ObterPaises")]
-
         public ActionResult ObterPaises()
         {
-            var data = new CopaContex();
-            var result = data.Paises.ToList();
-
-            if(result == null)
+            var data = new CopaContex()
+                .Paises
+                .Include(f => f.Confederacao)
+                .ToList();
+                
+            if(data == null)
             {
                 return BadRequest("Não existe paises para listar.");
             }
 
 
-            return Ok(result);
+            return Ok(data);
         }
 
 
@@ -55,7 +51,6 @@ namespace SorteioCopa.Controllers
         }
 
 
-
         [HttpDelete("DeletarPais/{Id}")]
 
         public ActionResult DeletearPais(int Id)
@@ -72,5 +67,24 @@ namespace SorteioCopa.Controllers
 
             return BadRequest("Não é possivel deletar pois pais não existe.");
         }
+
+
+        //[HttpGet("Sorteio")]
+
+        //public ActionResult Sorteio()
+        //{
+            
+        //    var data = new CopaContex();
+        //    var potes = data.Paises.FirstOrDefault(f => f.Sede == true);
+
+        //    if (potes != null)
+        //    {
+        //       return Ok(potes);
+                
+        //    }
+          
+        //    return BadRequest("Error");
+        //}
+
     }
 }

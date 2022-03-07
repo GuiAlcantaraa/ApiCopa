@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Curso\\testee\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj": {}
+    "D:\\Curso\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj": {}
   },
   "projects": {
-    "D:\\Curso\\testee\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj": {
+    "D:\\Curso\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Curso\\testee\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj",
+        "projectUniqueName": "D:\\Curso\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj",
         "projectName": "SorteioCopa",
-        "projectPath": "D:\\Curso\\testee\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj",
+        "projectPath": "D:\\Curso\\ApiCopa\\SorteioCopa\\SorteioCopa\\SorteioCopa.csproj",
         "packagesPath": "C:\\Users\\guilherme.machado\\.nuget\\packages\\",
-        "outputPath": "D:\\Curso\\testee\\ApiCopa\\SorteioCopa\\SorteioCopa\\obj\\",
+        "outputPath": "D:\\Curso\\ApiCopa\\SorteioCopa\\SorteioCopa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
