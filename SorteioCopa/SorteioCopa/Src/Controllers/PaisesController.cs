@@ -69,21 +69,22 @@ namespace SorteioCopa.Controllers
         }
 
 
-        //[HttpGet("Sorteio")]
+        //[HttpPost("sorteio")]
 
-        //public ActionResult Sorteio()
+        //public ActionResult sorteio(PotePais potePais)
         //{
-            
+
         //    var data = new CopaContex();
         //    var potes = data.Paises.FirstOrDefault(f => f.Sede == true);
 
         //    if (potes != null)
         //    {
-        //       return Ok(potes);
-                
+        //        var add = data.PotePais.Add(potePais);
+        //        return Ok(potes);
+
         //    }
-          
-        //    return BadRequest("Error");
+
+        //    return BadRequest("error");
         //}
 
     }
