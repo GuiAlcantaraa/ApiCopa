@@ -10,13 +10,6 @@ namespace SorteioCopa.Src.Controllers
     public class GruposController : ControllerBase
     {
 
-        [HttpGet]
-        public ActionResult Ok()
-        {
-            return Ok("Ola");
-        }
-
-
         [HttpGet("ObterGrupos")]
         public ActionResult ObterGrupos()
         {
@@ -29,8 +22,8 @@ namespace SorteioCopa.Src.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ObterGrupoPais")]
 
+        [HttpGet("ObterGrupoPais")]
         public ActionResult ObterGrupoPais()
         {
             var data = new CopaContex();

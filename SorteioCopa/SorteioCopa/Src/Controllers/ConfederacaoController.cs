@@ -46,7 +46,7 @@ namespace SorteioCopa.Controllers
 
         }
 
-       
+
         [HttpDelete("DeletarConf/{Id}")]
         public ActionResult DeletarConf(int Id)
         {

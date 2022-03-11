@@ -33,8 +33,6 @@ namespace SorteioCopa.Controllers
             return Ok(data);
         }
 
-
-
         [HttpPost("AdicionarPais")]
         public ActionResult AdicionarPais(paises paises)
         {
@@ -50,9 +48,7 @@ namespace SorteioCopa.Controllers
             return BadRequest("Pais ja existe na base de dados.");
         }
 
-
         [HttpDelete("DeletarPais/{Id}")]
-
         public ActionResult DeletearPais(int Id)
         {
             var data = new CopaContex();
@@ -67,25 +63,6 @@ namespace SorteioCopa.Controllers
 
             return BadRequest("Não é possivel deletar pois pais não existe.");
         }
-
-
-        //[HttpPost("sorteio")]
-
-        //public ActionResult sorteio(PotePais potePais)
-        //{
-
-        //    var data = new CopaContex();
-        //    var potes = data.Paises.FirstOrDefault(f => f.Sede == true);
-
-        //    if (potes != null)
-        //    {
-        //        var add = data.PotePais.Add(potePais);
-        //        return Ok(potes);
-
-        //    }
-
-        //    return BadRequest("error");
-        //}
 
     }
 }
