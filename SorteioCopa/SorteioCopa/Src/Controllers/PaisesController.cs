@@ -29,7 +29,6 @@ namespace SorteioCopa.Controllers
                 return BadRequest("Não existe paises para listar.");
             }
 
-
             return Ok(data);
         }
 
@@ -67,24 +66,6 @@ namespace SorteioCopa.Controllers
 
             return BadRequest("Não é possivel deletar pois pais não existe.");
         }
-
-
-        //[HttpGet("Sorteio")]
-
-        //public ActionResult Sorteio()
-        //{
-            
-        //    var data = new CopaContex();
-        //    var potes = data.Paises.FirstOrDefault(f => f.Sede == true);
-
-        //    if (potes != null)
-        //    {
-        //       return Ok(potes);
-                
-        //    }
-          
-        //    return BadRequest("Error");
-        //}
 
     }
 }
