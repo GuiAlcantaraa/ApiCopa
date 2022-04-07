@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SorteioCopa.Models;
+using SorteioCopa.Src.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace SorteioCopa.Data
         public DbSet<confederacao> Confederacao { get; set; }
         public DbSet<potes> Potes { get; set; }
         public DbSet<PotePais> PotePais { get; set; }
-
+        public DbSet<Grupos> Grupos { get; set; }
+        public DbSet<GrupoPais> GrupoPais { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -153,6 +155,59 @@ namespace SorteioCopa.Data
                               .WithMany()
                               .HasForeignKey(f => f.IdPote);
 
+            /////////////////////////////////////////////////
+
+
+
+            modelBuilder.Entity<Grupos>()
+               .ToTable("Grupos")
+               .HasKey("IdGrupo");
+
+            modelBuilder.Entity<Grupos>()
+             .Property(f => f.IdGrupo)
+             .HasColumnName("IDGRUPO")
+             .HasColumnType("INT")
+             .IsRequired();
+
+            modelBuilder.Entity<Grupos>()
+            .Property(f => f.Descricao)
+            .HasColumnName("DESCRICAO")
+            .HasColumnType("VARCHAR(10)")
+            .IsRequired();
+            ////////////////////////////////////////////////
+
+            modelBuilder.Entity<GrupoPais>()
+          .ToTable("GrupoPais")
+          .HasKey("IdGrupoPais");
+
+            modelBuilder.Entity<GrupoPais>()
+           .Property(f => f.IdGrupoPais)
+           .HasColumnName("IdGrupoPais")
+           .HasColumnType("INT")
+           .IsRequired();
+
+            modelBuilder.Entity<GrupoPais>()
+           .Property(f => f.IdPais)
+           .HasColumnName("PARTICIPANTES")
+           .HasColumnType("INT")
+           .IsRequired();
+
+            modelBuilder.Entity<GrupoPais>()
+           .Property(f => f.IdGrupo)
+           .HasColumnName("GRUPOS")
+           .HasColumnType("INT")
+           .IsRequired();
+
+
+            modelBuilder.Entity<GrupoPais>()
+                              .HasOne(f => f.paises)
+                              .WithMany()
+                              .HasForeignKey(f => f.IdPais);
+
+            modelBuilder.Entity<GrupoPais>()
+                              .HasOne(f => f.Grupos)
+                              .WithMany()
+                              .HasForeignKey(f => f.IdGrupo);
 
             base.OnModelCreating(modelBuilder);
         }

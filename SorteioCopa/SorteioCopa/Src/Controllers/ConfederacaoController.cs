@@ -14,7 +14,7 @@ namespace SorteioCopa.Controllers
     public class ConfederacaoController : ControllerBase
     {
 
-        [HttpGet]
+        [HttpGet("ObterConfederacoes")]
         public ActionResult ObterConfederacoes()
         {
             var data = new CopaContex();
@@ -46,7 +46,7 @@ namespace SorteioCopa.Controllers
 
         }
 
-       
+
         [HttpDelete("DeletarConf/{Id}")]
         public ActionResult DeletarConf(int Id)
         {

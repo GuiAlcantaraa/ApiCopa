@@ -13,7 +13,6 @@ namespace SorteioCopa.Controllers
     {
 
         [HttpGet("ObterPotePais")]
-
         public ActionResult ObterPorId()
         {
             var data = new CopaContex()
@@ -30,8 +29,8 @@ namespace SorteioCopa.Controllers
             return Ok(data);
         }
 
-        [HttpPost("AdicionarPaisNoPote")]
 
+        [HttpPost("AdicionarPaisNoPote")]
         public ActionResult AdicionarPaisNoPote(PotePais potepais)
         {
 

@@ -9,16 +9,7 @@ namespace SorteioCopa.Controllers
     [ApiController]
     public class PotesController : ControllerBase
     {
-
-        [HttpGet]
-
-        public ActionResult Padrao()
-        {
-            return Ok("ok");
-        }
-
         [HttpGet("ObterPotes")]
-
         public ActionResult ObterPotes()
         {
             var data = new CopaContex();

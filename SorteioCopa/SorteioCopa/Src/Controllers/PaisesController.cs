@@ -32,8 +32,6 @@ namespace SorteioCopa.Controllers
             return Ok(data);
         }
 
-
-
         [HttpPost("AdicionarPais")]
         public ActionResult AdicionarPais(paises paises)
         {
@@ -49,9 +47,7 @@ namespace SorteioCopa.Controllers
             return BadRequest("Pais ja existe na base de dados.");
         }
 
-
         [HttpDelete("DeletarPais/{Id}")]
-
         public ActionResult DeletearPais(int Id)
         {
             var data = new CopaContex();
